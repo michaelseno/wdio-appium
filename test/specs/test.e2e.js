@@ -1,15 +1,14 @@
-const { expect } = require('@wdio/globals')
-const LoginPage = require('../pageobjects/login.page')
-const SecurePage = require('../pageobjects/secure.page')
+const { expect, driver } = require('@wdio/globals')
+const LandingPage = require('../pageobjects/landing.page')
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.open()
-
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveText(
-            expect.stringContaining('You logged into a secure area!'))
+describe('WDIO Demo Application', () => {
+    it('should be routed to landing page', async () => {
+        await expect(LandingPage.menuHome).toBeExisting()
+        await expect(LandingPage.menuLogin).toBeExisting()
+        await expect(LandingPage.menuDrag).toBeExisting()
+        await expect(LandingPage.menuForm).toBeExisting()
+        await expect(LandingPage.menuSwipe).toBeExisting()
+        await expect(LandingPage.menuWebView).toBeExisting()
     })
 })
 

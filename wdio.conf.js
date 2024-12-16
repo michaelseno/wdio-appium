@@ -5,6 +5,7 @@ exports.config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
+    port: 4723,
     //
     // ==================
     // Specify Test Files
@@ -50,12 +51,21 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        // capabilities for local Appium web tests on iOS
+        // capabilities for local Appium web tests on an Android Emulator
+        platformName: 'Android',
+        'appium:deviceName': 'Pixel 9 API 35',
+        'appium:platformVersion': '15.0',
+        'appium:app': '/Users/mjseno/Downloads/android.wdio.native.app.v1.0.8.apk',
+        'appium:automationName': 'UiAutomator2',
+        'appium:fullReset': true
+    }, {
         platformName: 'iOS',
-        browserName: 'Safari',
-        'appium:deviceName': 'iPhone Simulator',
-        'appium:platformVersion': '16.4',
-        'appium:automationName': 'XCUITest'
+        'appium:udid': '06A7E971-407F-49A6-9AC3-54380CC6B7D2',
+        'appium:deviceName': 'iPhone SE 3rd Generation',
+        'appium:platformVersion': '18.2',
+        'appium:app': '/Users/mjseno/Downloads/Payload/wdiodemoapp.app',
+        'appium:automationName': 'XCUITest',
+        'appium:fullReset': true
     }],
 
     //
@@ -105,14 +115,10 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: [
-        ['appium', {
-            command: 'appium',
-            logPath: './logs/'
-        }]
-    ],
-    
-    //
+    services: [['appium', {
+        command: 'appium',
+    }]],
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -134,9 +140,9 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec', ['allure', {
-        outputDir: './allure-results',
-        disableWebdriverStepsReporting: true,
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: false,
         disableWebdriverScreenshotsReporting: false,
     }]],
 

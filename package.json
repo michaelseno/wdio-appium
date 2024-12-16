@@ -1,9 +1,9 @@
 {
-  "name": "wdio-appium",
+  "name": "wdio-appium-v1",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js",
+    "test": "npx wdio wdio.conf.js and npx allure generate allure-results --clean && npx allure open",
     "report": "npx allure generate allure-results --clean && npx allure open"
   },
   "keywords": [],
@@ -11,15 +11,12 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@wdio/allure-reporter": "^9.2.14",
-    "@wdio/cli": "^9.4.1",
-    "@wdio/local-runner": "^9.4.1",
-    "@wdio/mocha-framework": "^9.2.8",
+    "@wdio/allure-reporter": "^9.4.2",
+    "@wdio/appium-service": "^9.4.2",
+    "@wdio/cli": "^9.4.2",
+    "@wdio/local-runner": "^9.4.2",
+    "@wdio/mocha-framework": "^9.4.2",
     "allure-commandline": "^2.32.0",
-    "appium-xcuitest-driver": "^7.33.0",
-    "wdio-mochawesome-reporter": "^6.1.1"
-  },
-  "dependencies": {
-    "@wdio/appium-service": "^9.4.1"
+    "appium-uiautomator2-driver": "^3.9.5"
   }
 }

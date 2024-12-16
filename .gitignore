@@ -1,3 +1,8 @@
 node_modules
 /logs
 .vscode
+/allure-results
+/chromedriver-mobile
+.DS_Store
+.env
+test/.DS_Store

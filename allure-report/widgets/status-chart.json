@@ -1,1 +1,1 @@
-[]
+[{"uid":"c5b45098f4452647","name":"should be routed to landing page","time":{"start":1734389467888,"stop":1734389471243,"duration":3355},"status":"passed","severity":"normal"},{"uid":"d54dc4afaebb686b","name":"should be routed to landing page","time":{"start":1734389432899,"stop":1734389434538,"duration":1639},"status":"passed","severity":"normal"}]
